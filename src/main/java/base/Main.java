@@ -2,8 +2,9 @@ package base;
 
 import com.google.gson.Gson;
 import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.SortedBidiMap;
 import org.apache.commons.collections4.bidimap.DualHashBidiMap;
+import org.apache.commons.collections4.list.GrowthList;
+import org.apache.commons.collections4.map.HashedMap;
 
 import java.util.*;
 
@@ -42,15 +43,20 @@ public class Main {
         for (String s : bidiMap.keySet()) {
             System.out.println(bidiMap.get(s) + " key: " + s);
         }
-       Map<User, String> inverseBidiMapverted = bidiMap.inverseBidiMap();
+        Map<User, String> inverseBidiMapverted = bidiMap.inverseBidiMap();
         System.out.println("inverse:");
         for (User user : inverseBidiMapverted.keySet()) {
             System.out.println(inverseBidiMapverted.get(user) + " key " + user);
         }
+        GrowthList<User> againUser = new GrowthList<>();
+        againUser.add(create.create());
+        againUser.add(create.create());
+        againUser.add(create.create());
+        againUser.add(create.create());
+        System.out.println(againUser.size());
+        againUser.add(create.create());
+        System.out.println(againUser.size());
 
-        bidiMap.put("one", create.create());
-        bidiMap.put("two", create.create());
-        bidiMap.put("three", create.create());
     }
 
     private static void testJsonOne() {
